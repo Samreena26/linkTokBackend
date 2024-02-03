@@ -174,6 +174,7 @@ public function getAllUsers(Request $request)
             'id' => $user->id,
             'username' => $user->username,
             'email' => $user->email,
+            'interests' => $user->interests,
             'profile_picture_id' => $user->profile_picture_id,
             'image_link' => $image_url,
             'total_likes' => $user->likes_count
