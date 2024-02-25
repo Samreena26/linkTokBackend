@@ -220,6 +220,25 @@ public function like(Request $request)
         ], 201);
     }
 
-
+    public function reset(Request $request)
+    {
+        // Define the validation rules
+        $rules = [
+            'old_password' => 'required|password', // This rule checks if the old password matches the current password
+            'new_password' => 'required|string|min:8|confirmed', // This rule checks if the new password is a string, has at least 8 characters, and matches the confirmation field
+        ];
+    
+    
+    
+        // If the validation passes, update the user's password
+        $user = Auth::user();
+        $user->update([
+            'password' => Hash::make($request->new_password),
+        ]);
+    
+        // Return a success response
+        return response()->json(['message' => 'Password updated successfully'], 200);
+    }
+    
 
 }

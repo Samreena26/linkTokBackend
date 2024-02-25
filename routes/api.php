@@ -26,7 +26,7 @@ Route::middleware('auth:api')->group(function (){
     
   
 Route::post('like', [UserController::class, 'like']);
-
+Route::post('reset', [UserController::class, 'reset']);
 });
 
 
